@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section class="hero-wrap hero-wrap-2">
+<div class="container">
+<div class="row no-gutters slider-text align-items-center justify-content-center">
+<div class="col-md-9 text-center ftco-animate pt-5">
+<h1 class="mb-3 bread">Contact</h1>
+<p class="breadcrumbs"><span class="mr-2"><a href="/">Home <i class="fa fa-chevron-right"></i></a></span> <span>Contact <i class="fa fa-chevron-right"></i></span></p>
+</div>
+</div>
+</div>
+</section>
+<section class="ftco-section">
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-md-12">
+<div class="wrapper">
+<div class="row mb-5 justify-content-center">
+<div class="col-md-10">
+<div class="row">
+    {% for posts in posts %}
+<div class="col-md-3">
+<div class="dbox w-100 text-center">
+<div class="icon d-flex align-items-center justify-content-center">
+<span class="fa fa-map-marker"></span>
+</div>
+<div class="text">
+<p><span>Address:</span> {{ posts.address }}</p>
+</div>
+</div>
+</div>
+<div class="col-md-3">
+<div class="dbox w-100 text-center">
+<div class="icon d-flex align-items-center justify-content-center">
+<span class="fa fa-phone"></span>
+</div>
+<div class="text">
+<p><span>Phone:</span> <a href="tel://1234567920"></a>{{ posts.phone }}</p>
+</div>
+</div>
+</div>
+<div class="col-md-3">
+<div class="dbox w-100 text-center">
+<div class="icon d-flex align-items-center justify-content-center">
+<span class="fa fa-paper-plane"></span>
+</div>
+<div class="text">
+<p><span>Email:</span> <a href="https://preview.colorlib.com/cdn-cgi/l/email-protection#2e474048416e57415b5c5d475a4b004d4143"><span class="__cf_email__" data-cfemail="d4bdbab2bb94adbba1a6a7bda0b1fab7bbb9">[email&#160;protected]</span></a></p>
+</div>
+</div>
+</div>
+<div class="col-md-3">
+<div class="dbox w-100 text-center">
+<div class="icon d-flex align-items-center justify-content-center">
+<span class="fa fa-globe"></span>
+</div>
+<div class="text">
+<p><span>Website</span> <a href="#">{{ posts.website }}</a></p>
+</div>
+</div>
+</div>
+    {% endfor %}
+</div>
+</div>
+</div>
+<div class="row no-gutters mb-5">
+<div class="col-md-7">
+<div class="contact-wrap w-100 p-md-5 p-4">
+<h3 class="mb-4">Contact Us</h3>
+<form method="POST" id="contactForm" name="contactForm" class="contactForm">
+<div class="row">
+<div class="col-md-6">
+<div class="form-group">
+    {% csrf_token %}
+<label class="label" for="name">Full Name</label>
+{#<input type="text" class="form-control" name="name" id="name" placeholder="Name">#}
+    {{ form.name }}
+</div>
+</div>
+<div class="col-md-6">
+<div class="form-group">
+<label class="label" for="email">Email Address</label>
+{#<input type="email" class="form-control" name="email" id="email" placeholder="Email">#}
+    {{ form.email }}
+</div>
+</div>
+<div class="col-md-12">
+<div class="form-group">
+<label class="label" for="subject">Subject</label>
+{#<input type="text" class="form-control" name="subject" id="subject" placeholder="Subject">#}
+    {{ form.subject }}
+</div>
+</div>
+<div class="col-md-12">
+<div class="form-group">
+<label class="label" for="#">Message</label>
+{#    <label for="message"></label><textarea name="message" class="form-control" id="message" cols="30" rows="4" placeholder="Message"></textarea>#}
+    {{ form.message }}
+</div>
+</div>
+<div class="col-md-12">
+<div class="form-group">
+<input type="submit" value="Send Message" class="btn btn-primary">
+<div class="submitting"></div>
+</div>
+</div>
+</div>
+</form>
+</div>
+</div>
+<div class="col-md-5 d-flex align-items-stretch">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2711.475108304498!2d69.32245227553061!3d41.32457809988963!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38aef572e5842f55%3A0xa87fc261e04f75ea!2siSystem%20IT%20academy!5e1!3m2!1suz!2s!4v1714998324482!5m2!1suz!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+{% endblock %}
